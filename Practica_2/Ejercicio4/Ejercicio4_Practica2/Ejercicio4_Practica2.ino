@@ -1,14 +1,13 @@
 #include <WiFi.h>
 #include <WiFiClient.h>
-const char* ssid = "Mi_WiFi";
-const char* password = "Mi_Password";
+const char* ssid = "MEGACABLE-2.4G-90AB";
+const char* password = "gT9K6v9WGb";
 WiFiServer server(80);
-//Se tiene un LED incorporado en terminal 2, se puede usar
-otro GPIO
+//Se tiene un LED incorporado en terminal 2, se puede usar otro GPIO
 #define LED 2
 String estado = "";
 void setup() {
-Serial.begin(115200);
+Serial.begin(9600);
 pinMode(LED, OUTPUT);
 digitalWrite(LED, LOW);
 // Conectando a WiFi
@@ -42,10 +41,8 @@ while(!client.available()){ delay(1); }
 String req = client.readStringUntil('\r');
 Serial.println(req);
 // Realiza la petición del cliente.
-if (req.indexOf("on2") != -1) {digitalWrite(LED, HIGH);
-estado = "Encendido";}
-if (req.indexOf("off2") != -1){digitalWrite(LED, LOW);
-estado = "Apagado";}
+  if (req.indexOf("on2") != -1) {digitalWrite(LED, HIGH); estado = "Encendido";}
+  if (req.indexOf("off2") != -1){digitalWrite(LED, LOW); estado = "Apagado";}
 //////////////////////////////////////////////
 
 // Página WEB. ////////////////////////////
