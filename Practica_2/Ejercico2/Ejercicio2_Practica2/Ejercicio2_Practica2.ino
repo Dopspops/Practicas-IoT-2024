@@ -24,9 +24,9 @@ void setup()
   delay(3000);
   Serial.println("Iniciando");
   WiFi.begin(ssid, password);
-  while (!(WiFi.status() != WL_CONNECTED)) {
-    Serial.print(".");
+  while (WiFi.status() != WL_CONNECTED) {
     delay(800);
+    Serial.print(".");
   }
   Serial.println("Conexion establecida con el SSID");
   Serial.println((WiFi.localIP()));
@@ -48,7 +48,7 @@ void loop()
     client.println("<!DOCTYPE HTML>");
     client.println("<html>");
     client.println("<head>");
-      client.println("<title> MiESP32 </title>");
+    client.println("<title> MiESP32 </title>");
     client.println("</head>");
     client.println("<body>");
       client.println("<h1 style=""color:#3333ff"">");
