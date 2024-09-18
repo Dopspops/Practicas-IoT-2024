@@ -1,4 +1,7 @@
 #include <WiFi.h>
+#include <WiFiClient.h>
+const char* ssid = "IoT";
+const char* password = "1t3s0IoT23";
 
 WiFiServer server(80);
 
@@ -16,16 +19,14 @@ uint8_t temprature_sens_read();
 
 void setup()
 {
-Serial.begin(9600);
-
+  Serial.begin(9600);
   WiFi.disconnect();
   delay(3000);
   Serial.println("Iniciando");
-  WiFi.begin("MEGACABLE-2.4G-90AB","gT9K6v9WGb");
-  while ((!(WiFi.status() == WL_CONNECTED))){
-    Serial.print("....");
-    delay(300);
-
+  WiFi.begin(ssid, password);
+  while (!(WiFi.status() != WL_CONNECTED)) {
+    Serial.print(".");
+    delay(800);
   }
   Serial.println("Conexion establecida con el SSID");
   Serial.println((WiFi.localIP()));

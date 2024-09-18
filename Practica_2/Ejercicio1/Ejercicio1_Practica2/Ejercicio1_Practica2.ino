@@ -9,7 +9,7 @@ uint8_t temprature_sens_read();
 void setup()
 {
 pinMode(2, OUTPUT);
-Serial.begin(115200);
+Serial.begin(9600);
 }
 void loop()
 {

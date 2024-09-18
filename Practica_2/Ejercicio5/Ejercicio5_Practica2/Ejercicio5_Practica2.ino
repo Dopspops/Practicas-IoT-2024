@@ -1,7 +1,7 @@
 #include <WiFi.h>
 #include <WiFiClient.h>
-const char* ssid = "MEGACABLE-2.4G-90AB";
-const char* password = "gT9K6v9WGb";
+const char* ssid = "IoT";
+const char* password = "1t3s0IoT23";
 WiFiServer server(80);
 //Usar el pin 15 GPIO
 #define LED 15
